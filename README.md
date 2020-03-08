@@ -1,3 +1,3 @@
-## Welcome to GitHub Pages
+## Welcome to scala-common-lib
 
 A scala library for common use cases for scala software development
