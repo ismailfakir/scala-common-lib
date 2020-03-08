@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="sbt: org.tpolecat:tut-core_2.12:0.6.10:jar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.ivy2/cache/org.tpolecat/tut-core_2.12/jars/tut-core_2.12-0.6.10.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.ivy2/cache/org.tpolecat/tut-core_2.12/srcs/tut-core_2.12-0.6.10-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
