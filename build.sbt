@@ -12,10 +12,11 @@ testFrameworks += new TestFramework("scalaprops.ScalapropsFramework")
 description := "A scala library for common use cases for scala software development"
 
 import xerial.sbt.Sonatype._
-sonatypeProjectHosting := Some(GitHubHosting("scalacenter", "library-example", "julien.richard-foy@epfl.ch"))
+sonatypeProjectHosting := Some(GitHubHosting("ismailfakir", "scala-common-lib", "md.ismail.fakir@gmail.com"))
 // indicate the open source licenses that apply to our project
 licenses := Seq("APL2" -> url("http://www.apache.org/licenses/LICENSE-2.0.txt"))
 // publish to the Sonatype repository
+dynverSonatypeSnapshots in ThisBuild := true
 publishTo := sonatypePublishTo.value
 
 // retrieve secrets to sign files
