@@ -21,8 +21,8 @@ licenses := Seq("APL2" -> url("http://www.apache.org/licenses/LICENSE-2.0.txt"))
 // sbt-dynver version
 def versionFmt(out: sbtdynver.GitDescribeOutput): String = {
   val dirtySuffix = out.dirtySuffix.dropPlus.mkString("-", "")
-  if (out.isCleanAfterTag) out.ref.dropV.value + dirtySuffix // no commit info if clean after tag
-  else out.ref.dropV.value + out.commitSuffix.mkString("-", "-", "") + dirtySuffix
+  if (out.isCleanAfterTag) out.ref.dropPrefix + dirtySuffix // no commit info if clean after tag
+  else out.ref.dropPrefix + out.commitSuffix.mkString("-", "-", "") + dirtySuffix
 }
 
 def fallbackVersion(d: java.util.Date): String = s"HEAD-${sbtdynver.DynVer timestamp d}"
@@ -34,7 +34,7 @@ inThisBuild(List(
     sbtdynver.DynVer.getGitDescribeOutput(d).mkVersion(versionFmt, fallbackVersion(d))
   }
 ))
-dynverVTagPrefix in ThisBuild := false
+dynverVTagPrefix in ThisBuild := true
 // publish to the Sonatype repository
 dynverSonatypeSnapshots in ThisBuild := true
 publishTo := sonatypePublishTo.value
