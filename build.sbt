@@ -18,6 +18,22 @@ import xerial.sbt.Sonatype._
 sonatypeProjectHosting := Some(GitHubHosting("ismailfakir", "scala-common-lib", "md.ismail.fakir@gmail.com"))
 // indicate the open source licenses that apply to our project
 licenses := Seq("APL2" -> url("http://www.apache.org/licenses/LICENSE-2.0.txt"))
+// sbt-dynver version
+def versionFmt(out: sbtdynver.GitDescribeOutput): String = {
+  val dirtySuffix = out.dirtySuffix.dropPlus.mkString("-", "")
+  if (out.isCleanAfterTag) out.ref.dropV + dirtySuffix // no commit info if clean after tag
+  else out.ref.dropV + out.commitSuffix.mkString("-", "-", "") + dirtySuffix
+}
+
+def fallbackVersion(d: java.util.Date): String = s"HEAD-${sbtdynver.DynVer timestamp d}"
+
+inThisBuild(List(
+  version := dynverGitDescribeOutput.value.mkVersion(versionFmt, fallbackVersion(dynverCurrentDate.value)),
+  dynver := {
+    val d = new java.util.Date
+    sbtdynver.DynVer.getGitDescribeOutput(d).mkVersion(versionFmt, fallbackVersion(d))
+  }
+))
 // publish to the Sonatype repository
 dynverSonatypeSnapshots in ThisBuild := true
 publishTo := sonatypePublishTo.value
