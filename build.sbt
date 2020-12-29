@@ -1,13 +1,16 @@
-crossScalaVersions := Seq("2.12.8", "2.11.12")
-scalaVersion := crossScalaVersions.value.head
+crossScalaVersions := Seq("2.12.8", "2.11.12", "2.13.3")
+scalaVersion := crossScalaVersions.value.last
 
 name := "scala-common-lib"
 
 // also used as a `groupId` by Sonatype
 organization := "io.github.ismailfakir"
 
-libraryDependencies += "com.github.scalaprops" %% "scalaprops" % "0.5.5" % Test
-testFrameworks += new TestFramework("scalaprops.ScalapropsFramework")
+libraryDependencies += "org.scalactic" %% "scalactic" % "3.1.1"
+libraryDependencies += "org.scalatest" %% "scalatest" % "3.1.1" % "test"
+libraryDependencies += "net.liftweb" %% "lift-json" % "3.4.3"
+
+
 
 description := "A scala library for common use cases for scala software development"
 
@@ -35,3 +38,8 @@ git.remoteRepo := sonatypeProjectHosting.value.get.scmUrl
 
 // binary compatibility check
 mimaPreviousArtifacts := Set.empty // Disabled on `master` branch
+
+publishMavenStyle := true
+githubOwner := "ismailfakir"
+githubRepository := "scala-common-lib"
+githubTokenSource := TokenSource.GitConfig("github.token")

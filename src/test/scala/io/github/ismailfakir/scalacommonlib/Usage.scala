@@ -1,15 +1,17 @@
 package io.github.ismail.fakir.scalacommonlib
 
-import io.github.ismailfakir.scalacommonlib.ScalaCommonLib
-import scalaprops.{Property, Scalaprops}
+import org.scalatest.FlatSpec
 
-object Usage extends Scalaprops {
+object Usage extends FlatSpec {
 
-  val testDoNothing =
-// #do-nothing
-    Property.forAll { x: Int =>
-      ScalaCommonLib.doNothing(x) == x
+  "An empty Set" should "have size 0" in {
+    assert(Set.empty.size == 0)
+  }
+
+  it should "produce NoSuchElementException when head is invoked" in {
+    assertThrows[NoSuchElementException] {
+      Set.empty.head
     }
-// #do-nothing
+  }
 
 }
