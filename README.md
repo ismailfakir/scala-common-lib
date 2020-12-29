@@ -8,6 +8,7 @@ resolvers +=
   "Sonatype OSS Snapshots" at "https://oss.sonatype.org/content/repositories/snapshots"
 ```
 ```
+libraryDependencies ++= "io.github.ismailfakir" % "scala-common-lib_2.13" % "0.0.1+0-18158058+20201227-1639-SNAPSHOT"
 
 <dependency>
   <groupId>io.github.ismailfakir</groupId>
