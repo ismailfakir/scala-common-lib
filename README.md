@@ -16,8 +16,12 @@ Add dependency to your pom:
 ```
 <dependency>
   <groupId>io.github.ismailfakir</groupId>
-  <artifactId>scala-common-lib_2.12</artifactId>
-  <version>0.1.0+0-2fb621c4+20200308-2307-SNAPSHOT</version>
+  <artifactId>scala-common-lib_2.13</artifactId>
+  <version>0.0.1+0-18158058+20201227-1639-SNAPSHOT</version>
 </dependency>
 
+```
+### Usage
+```
+import io.github.ismailfakir.scalacommonlib.ScalaCommonLib._
 ```
