@@ -1,12 +1,10 @@
 package io.github.ismailfakir.scalacommon.json
 
-import io.github.ismailfakir.scalacommon.json.PlayJsonUtils.PlayJsValueHelpers
-import net.liftweb.json.{JValue, parse}
-import org.scalactic.TypeCheckedTripleEquals.convertToCheckingEqualizer
+import io.github.ismailfakir.scalacommon.json.JsonHelpers.JsValueHelpers
 import org.scalatest.flatspec.AnyFlatSpec
 import play.api.libs.json.{JsNumber, JsValue, Json}
 
-class PlayJsonUtilsTests extends AnyFlatSpec {
+class JsonHelpersTests extends AnyFlatSpec {
 
   val json: JsValue = Json.parse("""
     {
@@ -26,13 +24,6 @@ class PlayJsonUtilsTests extends AnyFlatSpec {
       } ]
     }
     """)
-
-  "A play-json JsValue" should "converted to lift-json JValue" in {
-
-    val lift = json.toJValue()
-
-    assert(lift.isInstanceOf[JValue])
-  }
 
   "A JsValue" should "converted to Map" in {
 

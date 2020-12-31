@@ -12,7 +12,6 @@ object Dependencies {
   )
 
   val json = Seq(
-    "net.liftweb" %% "lift-json" % "3.4.3",
     "com.typesafe.play" %% "play-json" % "2.9.1"
   )
 

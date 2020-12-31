@@ -1,18 +1,14 @@
 package io.github.ismailfakir.scalacommon.json
 
-import java.time.{LocalDate, LocalDateTime, ZonedDateTime}
+import java.time.{LocalDateTime, ZonedDateTime}
 
-import net.liftweb.json.{JValue, parse}
 import play.api.libs.json.Format.GenericFormat
 import play.api.libs.json.Reads._
-import play.api.libs.functional.syntax._
 import play.api.libs.json._
 
-import scala.collection.IterableOnce.iterableOnceExtensionMethods
+object JsonHelpers {
 
-object PlayJsonUtils {
-
-  implicit class PlayJsonHelpers[T <: JsLookupResult](
+  implicit class JsLookupResultHelpers[T <: JsLookupResult](
       jsLookupResult: JsLookupResult
   ) {
 
@@ -80,18 +76,9 @@ object PlayJsonUtils {
       }
     }
 
-    /**
-      * convert play json to lift json json
-      * @return
-      */
-    def toJValue(): JValue = {
-      val str = Json.stringify(optJson.getOrElse(JsNull))
-      parse(str)
-    }
-
   }
 
-  implicit class PlayJsValueHelpers[T <: JsValue](json: JsValue) {
+  implicit class JsValueHelpers[T <: JsValue](json: JsValue) {
 
     def asBool(): Option[Boolean] = {
       checkJsValue[Boolean]
@@ -164,18 +151,9 @@ object PlayJsonUtils {
 
     }
 
-    /**
-      * convert play json to lift json json
-      * @return
-      */
-    def toJValue(): JValue = {
-      val str = Json.stringify(json)
-      parse(str)
-    }
-
   }
 
-  implicit class PlayJsObjectHelpers[T <: JsObject](obj: JsObject)
+  implicit class JsObjectHelpers[T <: JsObject](obj: JsObject)
   {
     def addField[V](field: (String,V)): JsObject = {
 
@@ -196,7 +174,7 @@ object PlayJsonUtils {
 
   }
 
-  implicit class PlayJsArrayHelpers[T <: JsArray](arr: JsArray)
+  implicit class JsArrayHelpers[T <: JsArray](arr: JsArray)
   {
     def addEntry[V](entry: V): JsArray = {
 
