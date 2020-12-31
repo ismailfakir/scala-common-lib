@@ -1,8 +1,8 @@
 package io.github.ismail.fakir.scalacommonlib
 
-import org.scalatest.FlatSpec
+import org.scalatest.flatspec.AnyFlatSpec
 
-object Usage extends FlatSpec {
+object Usage extends AnyFlatSpec {
 
   "An empty Set" should "have size 0" in {
     assert(Set.empty.size == 0)

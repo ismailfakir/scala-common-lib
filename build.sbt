@@ -1,3 +1,6 @@
+import Dependencies._
+import xerial.sbt.Sonatype._
+
 crossScalaVersions := Seq("2.12.8", "2.11.12", "2.13.3")
 scalaVersion := crossScalaVersions.value.last
 
@@ -6,15 +9,10 @@ name := "scala-common-lib"
 // also used as a `groupId` by Sonatype
 organization := "io.github.ismailfakir"
 
-libraryDependencies += "org.scalactic" %% "scalactic" % "3.1.1"
-libraryDependencies += "org.scalatest" %% "scalatest" % "3.1.1" % "test"
-libraryDependencies += "net.liftweb" %% "lift-json" % "3.4.3"
-
-
-
 description := "A scala library for common use cases for scala software development"
 
-import xerial.sbt.Sonatype._
+libraryDependencies ++= Dependencies.all
+
 sonatypeProjectHosting := Some(GitHubHosting("ismailfakir", "scala-common-lib", "md.ismail.fakir@gmail.com"))
 // indicate the open source licenses that apply to our project
 licenses := Seq("APL2" -> url("http://www.apache.org/licenses/LICENSE-2.0.txt"))

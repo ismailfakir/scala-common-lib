@@ -1,4 +1,4 @@
-package io.github.ismailfakir.scalacommonlib.collection
+package io.github.ismailfakir.scalacommon.collection
 
 object Map {
 

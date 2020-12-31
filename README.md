@@ -23,5 +23,5 @@ Add dependency to your pom:
 ```
 ### Usage
 ```
-import io.github.ismailfakir.scalacommonlib.ScalaCommonLib._
+import io.github.ismailfakir.scalacommon.ScalaCommonLib._
 ```
