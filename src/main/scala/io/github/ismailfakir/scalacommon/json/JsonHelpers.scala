@@ -2,11 +2,14 @@ package io.github.ismailfakir.scalacommon.json
 
 import java.time.{LocalDateTime, ZonedDateTime}
 
+import org.slf4j.{Logger, LoggerFactory}
 import play.api.libs.json.Format.GenericFormat
 import play.api.libs.json.Reads._
 import play.api.libs.json._
 
 object JsonHelpers {
+
+  private lazy val log = LoggerFactory.getLogger(JsonHelpers.getClass)
 
   implicit class JsLookupResultHelpers[T <: JsLookupResult](
       jsLookupResult: JsLookupResult
@@ -142,7 +145,7 @@ object JsonHelpers {
       result.fold(
         invalid = { fieldErrors =>
           fieldErrors.foreach { x =>
-            println(s"field: ${x._1}, errors: ${x._2}")
+            log.info(s"field: ${x._1}, errors: ${x._2}")
           }
           Option.empty[T]
         },

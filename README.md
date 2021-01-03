@@ -7,6 +7,11 @@ Add dependency to your project description:
 ```
 libraryDependencies += "io.github.ismailfakir" %% "scala-common-lib" % "01b14fcb-20201229-2020"
 ```
+### Gradle users
+Add dependency to your project description:
+```
+compile group: 'io.github.ismailfakir', name: 'scala-common-lib_2.13', version: '01b14fcb-20201229-2020'
+```
 ### Maven users
 Add dependency to your pom:
 ```
