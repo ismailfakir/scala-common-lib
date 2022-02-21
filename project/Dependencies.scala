@@ -15,6 +15,11 @@ object Dependencies {
     "com.typesafe.play" %% "play-json" % "2.9.1"
   )
 
+  lazy val xml = Seq(
+    "org.scala-lang.modules" %% "scala-xml" % "2.0.0-M3"
+  )
+
+
   lazy val logging = Seq(
     "com.typesafe.scala-logging" %% "scala-logging"   % "3.9.2",
     "ch.qos.logback"              % "logback-classic" % "1.2.3" % Test
@@ -25,6 +30,6 @@ object Dependencies {
     "org.scalatest" %% "scalatest" % "3.1.1" % "test"
   )
 
-  val all = akka ++ json ++ logging ++ test
+  val all = akka ++ json ++ xml ++ logging ++ test
 
 }
